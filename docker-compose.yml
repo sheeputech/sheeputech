@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  go-nginx:
+    container_name: go-nginx
+    restart: always
+    build:
+      context: .docker/go-nginx
+    volumes:
+      - ./.docker/go-nginx/nginx/logs:/var/log/nginx
+      - ./app/static:/GO/src/sheeputech/app/static
+      - ./app/views:/GO/src/sheeputech/app/views
+      - ./app/services:/GO/src/sheeputech/app/services
+      - ./app/main.go:/GO/src/sheeputech/app/main.go
+    ports:
+      - '80:80'

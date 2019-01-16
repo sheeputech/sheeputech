@@ -1,0 +1,33 @@
+{{template "header"}}
+
+<div class="container mx-auto my-4">
+    <div class="card">
+        <div class="card-body">
+            <div class="h2">Samples / File Explorer UI</div>
+            <div class="lead mt-4">
+                This is file explorer UI sample implemented with BootStrap4, Anime.js and JavaScript / jQuery codes. All components are from BootStrap4, animate functions by Anime.js, and controlled by my JavaScript codes (control directory pagination, recording and using history, set bread crumbs and filename search by form text).
+            </div>
+            <div class="small text-muted font-weight-light mt-3 text-right">( Updated: Tuesday, January 15th, 2019 )</div>
+        </div>
+    </div>
+</div>
+
+<div class="container mx-auto my-4">
+    <nav class="d-flex mb-2" aria-label="File List Navigation">
+        <ul class="pagination pr-1 mb-1">
+            <li class="page-item disabled" id="dirBack"><a class="page-link font-weight-bold" href="javascript:goBackDir();">＜</a></li>
+            <li class="page-item disabled" id="dirForward"><a class="page-link font-weight-bold" href="javascript:goForwardDir();">＞</a></li>
+        </ul>
+        <div class="input-group pl-4 mb-1">
+            <input class="form-control" id="filterText" type="text" placeholder="Filter Text" aria-label="Search files by string" aria-describedby="filterBtn" onkeyup="funcControlFilterButton();">
+            <div class="input-group-append">
+                <button class="btn btn-outline-secondary" type="button" id="clearBtn" onclick="funcClearFilterText();chooseDir('', false);">Clear</button>
+                <button class="btn btn-outline-primary" type="button" id="filterBtn" onclick="filterDirs($('#filterText').val(), false);">Search</button>
+            </div>
+        </div>
+    </nav>
+    <div id="explorer"></div>
+</div>
+<script src="../../../static/js/top/top.js"></script>
+
+{{template "footer"}}

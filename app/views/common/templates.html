@@ -1,0 +1,115 @@
+{{define "header"}}
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"> <!-- For Internet Explorer -->
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <!-- For Responsive Design -->
+    <title>Sheepu.Tech</title>
+    <meta name="description"
+          content="This web application, Sheepu.Tech, is still under development the author, Kazumasa Hirata. On this page, I will publish various applications I have implemented experimentally or as practice.">
+    <!-- Explanation of the page  -->
+    <meta name="robots" content="noindex, nofollow"> <!-- Approval of Indexing and Crawling -->
+
+    <!-- Twitter Card -->
+    <meta property="og:url" content="https://www.sheepu.tech/">
+    <meta property="og:title" content="Top Page">
+    <meta property="og:type" content="website"> <!-- top: "website", article: "article" -->
+    <meta property="og:description"
+          content="This web application, Sheepu.Tech, is still under development the author, Kazumasa Hirata. On this page, I will publish various applications I have implemented experimentally or as practice.">
+    <meta property="og:image" content="../../static/img/sheepu.tech.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@sheepu_tech">
+    <meta property="og:site_name" content="Sheepu.Tech">
+    <meta property="og:locale" content="ja_JP">
+    <meta property="fb:app_id" content="2076030749081975">
+
+    <link rel="icon" href="../../static/img/sheepu.tech.jpg" sizes="16x16" type="image/png">
+    <link rel="icon" href="../../static/img/sheepu.tech.jpg" sizes="32x32" type="image/png">
+    <link rel="icon" href="../../static/img/sheepu.tech.jpg" sizes="48x48" type="image/png">
+    <link rel="icon" href="../../static/img/sheepu.tech.jpg" sizes="62x62" type="image/png">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <!-- BootStrap4 CSS-->
+    <!-- Vue.js -->
+</head>
+<body>
+<!-- for Facebook -->
+
+<!-- START: BootStrap4 JavaScript -->
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+<!-- END: BootStrap4 JavaScript -->
+
+<script src="../../static/js/anime/lib/anime.min.js"></script><!-- Anime.js -->
+
+<!-- START: NAVIGATION -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand text-white font-weight-bold" href="/">Sheepu.Tech</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navContent"
+            aria-controls="navContent" aria-expanded="false" aria-label="Toggle Navigation Bar">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse my-1" id="navContent">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item m-0">
+                <ul class="list-inline">
+                    <li class="list-inline-item"><a class="btn btn-outline-warning text-white disabled" href="/login">Log
+                            In</a></li>
+                    <li class="list-inline-item"><a class="btn btn-outline-warning text-white disabled" href="/signup">Sign
+                            Up</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</nav>
+<!-- END: NAVIGATION-->
+
+<!-- START: CONTENTS -->
+<div class="mx-auto mb-4" id="main" style="width: 100%"> <!-- align the entire contents horizontally center -->
+{{end}}
+
+{{define "footer"}}
+</div>
+<!-- END: CONTENTS -->
+
+<!-- START: FOOTER -->
+<div id="footer" class="position-relative">
+    <div class="row p-3 bg-transparent">
+        <div class="col text-center text-secondary small">©2019 Sheepu.Tech / produced by Kazumasa Hirata</div>
+    </div>
+</div>
+<script type="text/javascript">
+    'use strict';
+    const target = document.querySelector('body');
+    const observer = new ResizeObserver((record) => {
+        const windowHeight = window.innerHeight;
+        const bodyHeight = record[0].contentRect.height;
+        const f = $('#footer');
+        if (windowHeight >= bodyHeight) {
+            f.removeClass("position-relative").addClass("fixed-bottom");
+        } else {
+            f.removeClass("fixed-bottom").addClass("position-relative");
+        }
+    });
+    observer.observe(target);
+</script>
+<!-- END: FOOTER-->
+</body>
+</html>
+{{end}}
+
+<!-- START: ERROR -->
+{{/*{{define "error"}}*/}}
+{{/*{{end}}*/}}
+<!-- END: ERROR-->

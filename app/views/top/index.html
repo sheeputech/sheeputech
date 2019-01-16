@@ -1,0 +1,45 @@
+{{template "header"}}
+
+<div class="container mx-auto my-4">
+    <div class="card rounded">
+        <div class="card-body">
+            <div class="h1">Welcome to Sheepu.Tech!</div>
+            <div class="small text-secondary font-weight-light mt-4">Author: <a href="https://www.wantedly.com/users/19086632"
+                    target="_blank">Kazumasa Hirata</a></div>
+            <div class="lead mt-1">
+                On this page, I will publish applications I have implemented experimentally or as practice. <i>Sheepu.Tech</i>
+                is just started to be developed. Please look forward to new interesting works that will be released in
+                the near future.
+            </div>
+            <div class="small text-muted font-weight-light mt-3 text-right">( Updated: Tuesday, January 15th, 2019 )</div>
+        </div>
+    </div>
+    <div class="accordion mt-4" id="samples">
+        <div class="card border-bottom rounded">
+            <div class="card-header" id="header_samples">
+                <div class="h5 m-0">
+                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse_samples"
+                        aria-expanded="true" aria-controls="collapse_samples">Samples</button>
+                </div>
+            </div>
+            <div class="collapse show" id="collapse_samples" aria-labelledby="header_samples" data-parent="#samples">
+                <div class="list-group list-group-flush">
+                    <button type="button" class="list-group-item list-group-item-action" onclick="location.href='/samples/file_explorer'">
+                        <div class="row">
+                            <div class="col align-self-center">File Explorer UI</div>
+                            <div class="col align-self-center small text-success font-weight-light text-right">Published: Monday, January 12th, 2019</div>
+                        </div>
+                    </button>
+                    <button type="button" class="list-group-item list-group-item-action" onclick="location.href='/samples/jwt_auth'" disabled>
+                        <div class="row">
+                            <div class="col align-self-center">JWT Authentication</div>
+                            <div class="col align-self-center small text-secondary font-weight-light text-right">Coming soon...</div>
+                        </div>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{template "footer"}}

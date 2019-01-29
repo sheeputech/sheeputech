@@ -9,12 +9,18 @@ services:
       dockerfile: Dockerfile
     volumes:
       - ./.docker/nginx/logs:/var/log/nginx
+      - ./app/secret:/GO/src/sheeputech/app/secret
+      - ./app/services:/GO/src/sheeputech/app/services
       - ./app/static:/GO/src/sheeputech/app/static
       - ./app/views:/GO/src/sheeputech/app/views
-      - ./app/services:/GO/src/sheeputech/app/services
       - ./app/main.go:/GO/src/sheeputech/app/main.go
-      - ./app/go.mod:/GO/src/sheeputech/app/go.mod
-      - ./app/go.sum:/GO/src/sheeputech/app/go.sum
-      - ./app/vendor:/GO/src/sheeputech/app/vendor
+      - gomod:/GO/src/sheeputech/app/go.mod
+      - gosum:/GO/src/sheeputech/app/go.sum
+      - vendor:/GO/src/sheeputech/app/vendor
     ports:
       - '80:80'
+
+volumes:
+  - gomod:
+  - gosum:
+  - vendor:

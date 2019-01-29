@@ -3,7 +3,7 @@ FROM nginx:1.15
 LABEL Kazumasa Hirata <sheepu.tech@gmail.com>
 LABEL version="3.0"
 
-# install go
+# Install go
 RUN apt-get update && apt-get install -y \
       g++ \
       gcc \
@@ -24,7 +24,7 @@ ENV PATH=/usr/local/go/bin:$PATH \
       PATH=$GOPATH/bin:/usr/local/go/bin:$PATH
 RUN mkdir -p "$GOPATH/src" "$GOPATH/bin" && chmod -R 777 "$GOPATH"
 
-# set up nginx
+# Set nginx config
 RUN rm -rf \
       /var/lib/apt/lists/* \
       /etc/nginx/conf.d/* \
@@ -32,12 +32,16 @@ RUN rm -rf \
 COPY ./.docker/nginx/config/sheepu.conf /etc/nginx/conf.d/sheepu.conf
 WORKDIR /GO/src/sheeputech/app
 
-# go module
+# Go Module
 ENV GO111MODULE=on
 COPY ./app .
-RUN  go mod vendor
+RUN go mod init && go mod vendor
 
-# start
+# Set env of Google Cloud Platform
+COPY SheepuTech-62fd995277fa.json ./secret
+ENV GOOGLE_APPLICATION_CREDENTIALS=GOOGLE_APPLICATION_CREDENTIALS="/GO/src/sheeputech/app/secret/SheepuTech-62fd995277fa.json"
+
+# Start
 COPY start.sh /start.sh
 RUN chmod 744 /start.sh
 EXPOSE 80

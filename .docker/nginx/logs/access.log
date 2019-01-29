@@ -1,6 +1,0 @@
-192.168.99.1 - - [29/Jan/2019:02:47:16 +0000] "GET / HTTP/1.1" 200 7192 "-" "Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36"
-192.168.99.1 - - [29/Jan/2019:02:47:16 +0000] "GET /static/js/anime/lib/anime.min.js HTTP/1.1" 200 17030 "http://192.168.99.100/" "Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36"
-192.168.99.1 - - [29/Jan/2019:02:47:17 +0000] "GET /static/img/sheepu.tech.jpg HTTP/1.1" 200 124264 "http://192.168.99.100/" "Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36"
-192.168.99.1 - - [29/Jan/2019:03:00:24 +0000] "GET / HTTP/1.1" 200 7192 "-" "Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36"
-192.168.99.1 - - [29/Jan/2019:03:07:31 +0000] "GET / HTTP/1.1" 200 7192 "-" "Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36"
-192.168.99.1 - - [29/Jan/2019:03:07:31 +0000] "GET /static/img/sheepu.tech.jpg HTTP/1.1" 200 124264 "http://192.168.99.100/" "Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36"

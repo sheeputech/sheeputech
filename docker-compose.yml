@@ -14,13 +14,8 @@ services:
       - ./app/static:/GO/src/sheeputech/app/static
       - ./app/views:/GO/src/sheeputech/app/views
       - ./app/main.go:/GO/src/sheeputech/app/main.go
-      - gomod:/GO/src/sheeputech/app/go.mod
-      - gosum:/GO/src/sheeputech/app/go.sum
-      - vendor:/GO/src/sheeputech/app/vendor
+      - ./app/go.mod:/GO/src/sheeputech/app/go.mod
+      - ./app/go.sum:/GO/src/sheeputech/app/go.sum
+      - ./app/vendor:/GO/src/sheeputech/app/vendor
     ports:
       - '80:80'
-
-volumes:
-  gomod:
-  gosum:
-  vendor:

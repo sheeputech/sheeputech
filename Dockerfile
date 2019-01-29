@@ -35,8 +35,7 @@ WORKDIR /GO/src/sheeputech/app
 # go module
 ENV GO111MODULE=on
 COPY ./app .
-RUN  go mod vendor \
-      && go mod download
+RUN  go mod vendor
 
 # start
 COPY start.sh /start.sh

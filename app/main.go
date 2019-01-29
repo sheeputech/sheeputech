@@ -17,8 +17,6 @@ import (
 )
 
 func main() {
-	
-
 	l, err := net.Listen("tcp", ":9000")
 	if err != nil {
 		fmt.Println("some error occurred in net.Listen: ", err)
@@ -37,7 +35,6 @@ func main() {
 
 	err = fcgi.Serve(l, r)
 	if err != nil {
-		// fmt.Println("some error occurred in fcgi.Serve: ", err)
-
+		fmt.Println("some error occurred in fcgi.Serve: ", err)
 	}
 }

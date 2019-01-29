@@ -21,6 +21,6 @@ services:
       - '80:80'
 
 volumes:
-  - gomod:
-  - gosum:
-  - vendor:
+  gomod:
+  gosum:
+  vendor:

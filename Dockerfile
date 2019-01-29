@@ -38,7 +38,7 @@ COPY ./app .
 RUN go mod init && go mod vendor
 
 # Set env of Google Cloud Platform
-COPY SheepuTech-62fd995277fa.json ./secret
+COPY ./app/secret/SheepuTech-62fd995277fa.json ./secret
 ENV GOOGLE_APPLICATION_CREDENTIALS=GOOGLE_APPLICATION_CREDENTIALS="/GO/src/sheeputech/app/secret/SheepuTech-62fd995277fa.json"
 
 # Start

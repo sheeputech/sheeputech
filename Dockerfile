@@ -32,13 +32,11 @@ RUN rm -rf \
 COPY ./.docker/nginx/config/sheepu.conf /etc/nginx/conf.d/sheepu.conf
 WORKDIR /GO/src/sheeputech/app
 
-# Go Module
+# For Go Module
 ENV GO111MODULE=on
 COPY ./app .
-RUN go mod init
 
 # Set env of Google Cloud Platform
-COPY ./app/secret/SheepuTech-62fd995277fa.json ./secret/SheepuTech-62fd995277fa.json
 ENV GOOGLE_APPLICATION_CREDENTIALS=GOOGLE_APPLICATION_CREDENTIALS="/GO/src/sheeputech/app/secret/SheepuTech-62fd995277fa.json"
 
 # Start

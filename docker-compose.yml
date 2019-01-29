@@ -19,5 +19,5 @@ services:
     ports:
       - '80:80'
 
-volume:
+volumes:
   nginx-logs:

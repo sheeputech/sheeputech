@@ -5,12 +5,16 @@ services:
     container_name: go-nginx
     restart: always
     build:
-      context: .docker/go-nginx
+      context: .
+      dockerfile: Dockerfile
     volumes:
-      - ./.docker/go-nginx/nginx/logs:/var/log/nginx
+      - ./.docker/nginx/logs:/var/log/nginx
+      - ./app/services:/GO/src/sheeputech/app/services
       - ./app/static:/GO/src/sheeputech/app/static
       - ./app/views:/GO/src/sheeputech/app/views
-      - ./app/services:/GO/src/sheeputech/app/services
       - ./app/main.go:/GO/src/sheeputech/app/main.go
+      - ./app/go.mod:/GO/src/sheeputech/app/go.mod
+      - ./app/go.sum:/GO/src/sheeputech/app/go.sum
+      - ./app/vendor:/GO/src/sheeputech/app/vendor
     ports:
       - '80:80'

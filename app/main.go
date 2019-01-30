@@ -7,7 +7,7 @@ package main
  */
 
 import (
-	"fmt"
+	"log"
 	"net"
 	"net/http"
 	"net/http/fcgi"
@@ -16,38 +16,27 @@ import (
 	"github.com/gorilla/mux"
 )
 
-func Authenticate(f func(http.ResponseWriter, *http.Request)) func(http.ResponseWriter, *http.Request) {
-	return f
-}
-
 func main() {
-	// TODO Prepare DB connection
-	// TODO Prepare authentication
-
-	l, err := net.Listen("tcp", ":9000") // Prepare to listen
+	l, err := net.Listen("tcp", ":9000")
 	if err != nil {
-		fmt.Println("some error occurred in net.Listen: ", err)
+		log.Println("some error occurred in net.Listen: ", err)
 	}
 
-	r := mux.NewRouter() // define gorilla/mux router
+	r := mux.NewRouter()
+	r.PathPrefix("/static/").Handler(http.StripPrefix("/static/", http.FileServer(http.Dir("./static/"))))
 
-	r.PathPrefix("/static/").Handler(http.StripPrefix("/static/", http.FileServer(http.Dir("./static/")))) // Load static files ( JavaScript, CSS, ...)
-
-	// index
-	r.HandleFunc("/", Authenticate(controller.IndexViewHandler))
-
-	// samples
+	r.HandleFunc("/", controller.IndexViewHandler)
 	r.HandleFunc("/samples/file_explorer", controller.SampleFileExplorerViewHandler)
 
-	r.HandleFunc("/error", Authenticate(controller.ErrorViewHandler))
-	r.HandleFunc("/signup", Authenticate(controller.SignupViewHandler))
-	r.HandleFunc("/login", Authenticate(controller.LoginViewHandler))
-	r.HandleFunc("/logout", Authenticate(controller.LogoutViewHandler))
+	r.HandleFunc("/error", controller.ErrorViewHandler)
+	r.HandleFunc("/signup", controller.SignupViewHandler)
+	r.HandleFunc("/login", controller.LoginViewHandler)
+	r.HandleFunc("/logout", controller.LogoutViewHandler)
 
-	// http.ListenAndServe(":9000", r)
-
-	err = fcgi.Serve(l, r) // Serve ( here using "FastCGI" )
+	err = fcgi.Serve(l, r)
 	if err != nil {
-		fmt.Println("some error occurred in fcgi.Serve: ", err)
+		log.Println("some error occurred in fcgi.Serve: ", err)
+		panic(err)
 	}
+	log.Println("Go started listening and serving HTTP.")
 }

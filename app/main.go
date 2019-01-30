@@ -7,7 +7,7 @@ package main
  */
 
 import (
-	"fmt"
+	"log"
 	"net"
 	"net/http"
 	"net/http/fcgi"
@@ -19,7 +19,7 @@ import (
 func main() {
 	l, err := net.Listen("tcp", ":9000")
 	if err != nil {
-		fmt.Println("some error occurred in net.Listen: ", err)
+		log.Println("some error occurred in net.Listen: ", err)
 	}
 
 	r := mux.NewRouter()
@@ -35,8 +35,8 @@ func main() {
 
 	err = fcgi.Serve(l, r)
 	if err != nil {
-		fmt.Println("some error occurred in fcgi.Serve: ", err)
+		log.Println("some error occurred in fcgi.Serve: ", err)
 		panic(err)
 	}
-	fmt.Println("Go started listening and serving HTTP.")
+	log.Println("Go started listening and serving HTTP.")
 }

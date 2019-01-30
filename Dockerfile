@@ -37,7 +37,8 @@ ENV GO111MODULE=on
 COPY ./app .
 
 # Set env of Google Cloud Platform
-ENV GOOGLE_APPLICATION_CREDENTIALS=GOOGLE_APPLICATION_CREDENTIALS="/GO/src/sheeputech/app/secret/SheepuTech-62fd995277fa.json"
+COPY ./app/secret/SheepuTech-62fd995277fa.json /home/sheepu/SheepuTech-62fd995277fa.json
+ENV GOOGLE_APPLICATION_CREDENTIALS="/home/sheepu/SheepuTech-62fd995277fa.json"
 
 # Start
 COPY start.sh /start.sh

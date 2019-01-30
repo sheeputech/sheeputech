@@ -9,7 +9,6 @@ services:
       dockerfile: Dockerfile
     volumes:
       - ./.docker/nginx/logs:/var/log/nginx
-      - ./app/secret:/GO/src/sheeputech/app/secret
       - ./app/services:/GO/src/sheeputech/app/services
       - ./app/static:/GO/src/sheeputech/app/static
       - ./app/views:/GO/src/sheeputech/app/views

@@ -36,5 +36,7 @@ func main() {
 	err = fcgi.Serve(l, r)
 	if err != nil {
 		fmt.Println("some error occurred in fcgi.Serve: ", err)
+		panic(err)
 	}
+	fmt.Println("Go started listening and serving HTTP.")
 }

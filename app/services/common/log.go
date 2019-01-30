@@ -5,7 +5,6 @@ import (
 	"net/http"
 
 	"cloud.google.com/go/logging"
-
 	"golang.org/x/net/context"
 )
 

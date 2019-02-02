@@ -1,11 +1,5 @@
 package main
 
-/*
- * go get -u github.com/go-sql-driver/mysql \
- *           github.com/gorilla/sessions \
- *           golang.org/x/crypto/bcrypt
- */
-
 import (
 	"log"
 	"net"

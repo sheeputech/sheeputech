@@ -34,7 +34,6 @@ WORKDIR /GO/src/sheeputech/app
 
 # For Go Module
 ENV GO111MODULE=on
-COPY ./app .
 
 # Set env of Google Cloud Platform
 COPY ./app/secret/SheepuTech-62fd995277fa.json /home/sheepu/SheepuTech-62fd995277fa.json

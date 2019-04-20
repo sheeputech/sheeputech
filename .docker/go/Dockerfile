@@ -29,18 +29,18 @@ RUN rm -rf \
       /var/lib/apt/lists/* \
       /etc/nginx/conf.d/* \
       /usr/share/nginx/html/*
-COPY ./.docker/nginx/config/sheepu.conf /etc/nginx/conf.d/sheepu.conf
+COPY ../nginx/app.conf /etc/nginx/conf.d/sheepu.conf
 WORKDIR /GO/src/sheeputech/app
 
 # For Go Module
 ENV GO111MODULE=on
 
 # Set env of Google Cloud Platform
-COPY ./app/secret/SheepuTech-62fd995277fa.json /home/sheepu/SheepuTech-62fd995277fa.json
+COPY ../../backend-go /home/sheepu/SheepuTech-62fd995277fa.json
 ENV GOOGLE_APPLICATION_CREDENTIALS="/home/sheepu/SheepuTech-62fd995277fa.json"
 
 # Start
-COPY start.sh /start.sh
+COPY ../../start.sh /start.sh
 RUN chmod 744 /start.sh
 EXPOSE 80
 CMD ["/start.sh"]

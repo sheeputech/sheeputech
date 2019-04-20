@@ -3,8 +3,13 @@ version: '3'
 services:
   frontend:
     container_name: frontend
+    build:
+      context: .docker/nginx
+      dockerfile: Dockerfile
+    restart: on-failure
+    tty: true
     ports:
       - '80:80'
-#  backend:
+#  backend-go:
 #    ports:
 #      - '9000:9000'

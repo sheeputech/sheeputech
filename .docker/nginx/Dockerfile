@@ -1,8 +1,7 @@
 FROM nginx:1.15
 
-COPY frontend.conf /etc/nginx/conf.d/default.conf
+COPY app.conf /etc/nginx/conf.d/default.conf
 
-WORKDIR /var/www/frontend
-
+WORKDIR /var/www/html
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]

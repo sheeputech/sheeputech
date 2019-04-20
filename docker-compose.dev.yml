@@ -8,8 +8,12 @@ services:
       dockerfile: Dockerfile
     restart: on-failure
     tty: true
+    volumes:
+      - ./frontend-vue/dist:/var/www/html
     ports:
       - '80:80'
-#  backend-go:
-#    ports:
-#      - '9000:9000'
+#  backend:
+#    container_name: backend
+#    build:
+#      context: .docker/go
+#      dockerfile: Dockerfile

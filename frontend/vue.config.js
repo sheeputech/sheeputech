@@ -2,7 +2,7 @@ const path = require('path')
 
 module.exports = {
     publicPath: '/',
-    outputDir: 'dist',
+    outputDir: '../.deploy/frontend/dist',
     assetsDir: '',
     indexPath: 'index.html',
     filenameHashing: false,

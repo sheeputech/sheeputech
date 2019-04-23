@@ -5,7 +5,7 @@ module.exports = {
     outputDir: '../.deploy/frontend/dist',
     assetsDir: '',
     indexPath: 'index.html',
-    filenameHashing: false,
+    filenameHashing: true,
     pages: undefined,
     productionSourceMap: false,
     chainWebpack: config => {

@@ -9,6 +9,11 @@ export default new VueRouter({
     routes: [
         {
             path: '/',
-        }
+            component: () => import('./pages/Layout.vue'),
+            children: [
+                {path: '/', component: () => import('./pages/Home/Home.vue')},
+                {path: '*', component: () => import('./pages/NotFound/NotFound.vue')},
+            ]
+        },
     ]
 })
